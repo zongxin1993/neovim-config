@@ -2,7 +2,7 @@ local M = {}
 
 -- TODO: backfill this to template
 M.setup = function()
-  local signs = {
+	local signs = {
 		{ name = "DiagnosticSignError", text = "" },
 		{ name = "DiagnosticSignWarn", text = "" },
 		{ name = "DiagnosticSignHint", text = "" },
@@ -25,7 +25,7 @@ M.setup = function()
 		severity_sort = true,
 		float = {
 			focusable = false,
-  	  style = "minimal",
+			style = "minimal",
 			border = "rounded",
 			source = "always",
 			header = "",
@@ -44,6 +44,35 @@ M.setup = function()
 		border = "rounded",
 		width = 60,
 	})
+
+	-- symbols for autocomplete
+	vim.lsp.protocol.CompletionItemKind = {
+		"   (Text) ",
+		"   (Method)",
+		"   (Function)",
+		"   (Constructor)",
+		" ﴲ  (Field)",
+		"[] (Variable)",
+		"   (Class)",
+		" ﰮ  (Interface)",
+		"   (Module)",
+		" 襁 (Property)",
+		"   (Unit)",
+		"   (Value)",
+		" 練 (Enum)",
+		"   (Keyword)",
+		"   (Snippet)",
+		"   (Color)",
+		"   (File)",
+		"   (Reference)",
+		"   (Folder)",
+		"   (EnumMember)",
+		" ﲀ  (Constant)",
+		" ﳤ  (Struct)",
+		"   (Event)",
+		"   (Operator)",
+		"   (TypeParameter)",
+	}
 end
 
 local function lsp_highlight_document(client)
@@ -68,12 +97,28 @@ local function lsp_keymaps(bufnr)
 	-- vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>ca", "<cmd>lua vim.lsp.buf.code_action()<CR>", opts)
 	-- vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>f", "<cmd>lua vim.diagnostic.open_float()<CR>", opts)
 	vim.api.nvim_buf_set_keymap(bufnr, "n", "[d", '<cmd>lua vim.diagnostic.goto_prev({ border = "rounded" })<CR>', opts)
-	vim.api.nvim_buf_set_keymap(bufnr, "n", "gl", '<cmd>lua vim.diagnostic.open_float({ border = "rounded" })<CR>',opts)
+	vim.api.nvim_buf_set_keymap(
+		bufnr,
+		"n",
+		"gl",
+		'<cmd>lua vim.diagnostic.open_float({ border = "rounded" })<CR>',
+		opts
+	)
 	vim.api.nvim_buf_set_keymap(bufnr, "n", "]d", '<cmd>lua vim.diagnostic.goto_next({ border = "rounded" })<CR>', opts)
 	-- vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>q", "<cmd>lua vim.diagnostic.setloclist()<CR>", opts)
---	vim.api.nvim_buf_set_keymap(bufnr, "n", "gf", '<cmd>lua vim.lsp.buf.format{async=true})<CR>',opts)
+	vim.api.nvim_buf_set_keymap(bufnr, "n", "gf", '<cmd>lua vim.lsp.buf.format{async=true})<CR>',opts)
 	--vim.cmd([[ command! Format execute 'lua vim.lsp.buf.format{async=true}' ]])
 end
+--[[
+local lsp_formatting = function(bufnr)
+	vim.lsp.buf.format({
+		filter = function(client)
+			-- apply whatever logic you want (in this example, we'll only use null-ls)
+			return client.name == "null-ls"
+		end,
+		bufnr = bufnr,
+	})
+end]]
 
 M.on_attach = function(client, bufnr)
 	-- vim.notify(client.name .. " starting...")

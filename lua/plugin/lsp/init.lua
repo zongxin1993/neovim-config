@@ -6,6 +6,3 @@ end
 require "plugin.lsp.configs"
 require("plugin.lsp.handlers").setup()
 require "plugin.lsp.null-ls"
---require "plugin.lsp.lsp-colors"
---require "plugin.lsp.lsp-trouble"
---require "plugin.lsp.lspsaga"

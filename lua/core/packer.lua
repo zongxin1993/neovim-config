@@ -79,7 +79,7 @@ return packer.startup(function(use)
 	use({ "williamboman/nvim-lsp-installer", commit = "e9f13d7acaa60aff91c58b923002228668c8c9e6" }) -- simple to use language server installer
 	use({ "jose-elias-alvarez/null-ls.nvim", commit = "ff40739e5be6581899b43385997e39eecdbf9465" }) -- for formatters and linters
 
-  -- Telescope
+	-- Telescope
 	use({ "nvim-telescope/telescope.nvim", commit = "d96eaa914aab6cfc4adccb34af421bdd496468b0" })
 
 	-- Treesitter
@@ -91,52 +91,42 @@ return packer.startup(function(use)
 	-- Git
 	use({ "lewis6991/gitsigns.nvim", commit = "c18e016864c92ecf9775abea1baaa161c28082c3" })
 
-  -- Notify
-  use({
-    "rcarriga/nvim-notify",
-    config = function()
-      require("core.notify").setup()
-    end,
-    requires = { "nvim-telescope/telescope.nvim" },
-  })
+	-- Notify
+	use({
+		"rcarriga/nvim-notify",
+		config = function()
+			require("core.notify").setup()
+		end,
+		requires = { "nvim-telescope/telescope.nvim" },
+	})
 
-  -- Window shade
-  use({
-    "sunjon/shade.nvim",
-    config = function ()
-      require("shade").setup()
-    end
-  })
+	-- Git diff
+	use({ "sindrets/diffview.nvim", require = "nvim-lua/plenary.nvim" })
 
-  -- Git diff
-  use({"sindrets/diffview.nvim",require = "nvim-lua/plenary.nvim"})
+	-- Outline
+	use({
+		"simrat39/symbols-outline.nvim",
+		config = function()
+			require("symbols-outline").setup()
+		end,
+	})
 
-  -- language server
-  use({
-    "sumneko/lua-language-server",
-    config = function ()
-      require("lua-language-server").setup()
-    end
-  })
+	-- Comments
+	use({
+		"numToStr/Comment.nvim",
+		commit = "2c26a00f32b190390b664e56e32fd5347613b9e2",
+	})
 
-  -- Outline
-  use({
-    "simrat39/symbols-outline.nvim",
-    config = function ()
-      require("symbols-outline").setup()
-    end
-  })
+	use({
+		"glepnir/galaxyline.nvim",
+	})
+	use({ "SmiteshP/nvim-gps" })
+	-- debugger
+	use("mfussenegger/nvim-dap")
+	use("rcarriga/nvim-dap-ui")
+	use("theHamsta/nvim-dap-virtual-text")
 
-  -- Comments
-  use({
-    "numToStr/Comment.nvim",
-    event = "BufRead",
-    config = function()
-      require("comment").setup()
-    end,
-  })
-
-  -- Automatically set up your configuration after cloning packer.nvim
+	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins
 	if PACKER_BOOTSTRAP then
 		require("packer").sync()

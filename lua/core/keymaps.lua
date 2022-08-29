@@ -40,7 +40,7 @@ keymap("n", "<A-j>", "<Esc>:m .+1<CR>==gi", opts)
 keymap("n", "<A-k>", "<Esc>:m .-2<CR>==gi", opts)
 
 -- Save
-keymap("n", "<C-s>",  ":w<cr>", opts)
+keymap("n", "<C-s>", ":w<cr>", opts)
 
 -- Find files and strings
 keymap("n", "<C-f>", ":Telescope live_grep<cr>", opts)
@@ -60,7 +60,7 @@ keymap("n", "<C-\\>", "<cmd>lua require('Comment.api').toggle_current_linewise()
 keymap("n", "<C-o>", ":SymbolsOutline<cr>", opts)
 
 -- Insert --
--- Press jk fast to exit insert mode 
+-- Press jk fast to exit insert mode
 keymap("i", "jk", "<ESC>", opts)
 
 -- Visual --
