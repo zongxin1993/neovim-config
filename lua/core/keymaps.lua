@@ -49,9 +49,9 @@ keymap("n", "<A-f>", ":Telescope find_files<cr>", opts)
 -- close buffer
 keymap("n", "<C-c>", ":Bdelete<cr>", opts)
 
--- Back and Froword
+-- Back and Forward
 keymap("n", "<A-Left>", "<C-o>", opts)
-keymap("n", "<A-Righ>t", "<C-i>", opts)
+keymap("n", "<A-Right>", "<C-i>", opts)
 
 -- Comment
 keymap("n", "<C-\\>", "<cmd>lua require('Comment.api').toggle_current_linewise()<CR>", opts)
