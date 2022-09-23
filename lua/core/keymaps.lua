@@ -44,7 +44,7 @@ keymap("n", "<C-s>", ":w<cr>", opts)
 
 -- Find files and strings
 keymap("n", "<C-f>", ":Telescope live_grep<cr>", opts)
-keymap("n", "<A-f>", ":Telescope find_files<cr>", opts)
+keymap("n", "<C-p>", ":Telescope find_files<cr>", opts)
 
 -- close buffer
 keymap("n", "<C-c>", ":Bdelete<cr>", opts)
@@ -58,6 +58,9 @@ keymap("n", "<C-\\>", "<cmd>lua require('Comment.api').toggle_current_linewise()
 
 -- Outline
 keymap("n", "<C-o>", ":SymbolsOutline<cr>", opts)
+
+-- Tree
+keymap("n", "<C-n>", ":NvimTreeToggle<CR>", opts)
 
 -- Insert --
 -- Press jk fast to exit insert mode
