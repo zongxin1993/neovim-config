@@ -10,7 +10,7 @@
 | Move text up and down | &lt;A - j , k&gt; |
 | Save | &lt;C - s&gt; |
 | Filter strings | &lt;C - f&gt; |
-| Find file | &lt;A - f&gt; |
+| Find file | &lt;C - p&gt; |
 | Back and Forward | &lt;A - Left , Right&gt; |
 | Close buffer | &lt;C - c&gt; |
 | Comment | &lt;C - \\&gt; |
