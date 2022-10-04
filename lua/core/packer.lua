@@ -1,5 +1,4 @@
 local fn = vim.fn
-
 -- Automatically install packer
 local install_path = fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
 if fn.empty(fn.glob(install_path)) > 0 then
@@ -89,7 +88,7 @@ return packer.startup(function(use)
 	})
 
 	-- Git
-	use({ "lewis6991/gitsigns.nvim", commit = "c18e016864c92ecf9775abea1baaa161c28082c3" })
+	use({ "lewis6991/gitsigns.nvim", commit = "c18e016864c92ecf9775abea1baaa161c28082c3",requires = {"nvim-lua/plenary.nvim"} })
 
 	-- Notify
 	use({
@@ -126,8 +125,42 @@ return packer.startup(function(use)
 	use("rcarriga/nvim-dap-ui")
 	use("theHamsta/nvim-dap-virtual-text")
 
---  use({"wesleimp/stylua.nvim"})
+  -- use({"wesleimp/stylua.nvim"})
+  use({ "yamatsum/nvim-cursorline"})
 
+  use({"norcalli/nvim-colorizer.lua"})
+
+  use({"npxbr/glow.nvim",cmd = "Glow",run = ":GlowInstall"})
+
+  use({"j-hui/fidget.nvim",ft = enable_lsp_filetype,
+        config = function()
+          require("fidget").setup {}
+        end
+      })
+  use({"ray-x/lsp_signature.nvim",
+        config = function()
+          require("lsp_signature").setup(
+            {
+              bind = true,
+              handler_opts = {
+                border = "rounded"
+              },
+              hint_enable = false,
+              floating_window = true,
+              hi_parameter = "LspSignatureActiveParameter"
+            }
+          )
+        end
+      })
+  use({"antoinemadec/FixCursorHold.nvim"})
+-- Theme
+      use {
+        "glepnir/zephyr-nvim",
+        requires = {"nvim-treesitter/nvim-treesitter", opt = true},
+        config = function()
+          require("zephyr")
+        end
+      }
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins
 	if PACKER_BOOTSTRAP then

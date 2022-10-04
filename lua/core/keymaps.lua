@@ -9,7 +9,6 @@ local keymap = vim.api.nvim_set_keymap
 keymap("", "<Space>", "<Nop>", opts)
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
-
 -- Modes
 --   normal_mode = "n",
 --   insert_mode = "i",
@@ -19,12 +18,21 @@ vim.g.maplocalleader = " "
 --   command_mode = "c",
 
 -- Normal --
--- Better window navigation
-keymap("n", "<C-Left>", "<C-w>h", opts)
-keymap("n", "<C-Down>", "<C-w>j", opts)
-keymap("n", "<C-Up>", "<C-w>k", opts)
-keymap("n", "<C-Right>", "<C-w>l", opts)
+-- close project
+keymap("n", "<C-q>", "<esc>:wq<CR>", opts)
 
+-- Better window navigation
+if vim.fn.has "mac" == 1 then
+  keymap("n", "<A-Left>", "<C-w>h", opts)
+  keymap("n", "<A-Down>", "<C-w>j", opts)
+  keymap("n", "<A-Up>", "<C-w>k", opts)
+  keymap("n", "<A-Right>", "<C-w>l", opts)
+else
+  keymap("n", "<C-Left>", "<C-w>h", opts)
+  keymap("n", "<C-Down>", "<C-w>j", opts)
+  keymap("n", "<C-Up>", "<C-w>k", opts)
+  keymap("n", "<C-Right>", "<C-w>l", opts)
+end
 -- Resize with arrows
 -- keymap("n", "<C-k>", ":resize +2<CR>", opts)
 -- keymap("n", "<C-j>", ":resize -2<CR>", opts)
@@ -57,10 +65,14 @@ keymap("n", "<A-Right>", "<C-i>", opts)
 keymap("n", "<C-\\>", "<cmd>lua require('Comment.api').toggle_current_linewise()<CR>", opts)
 
 -- Outline
-keymap("n", "<C-o>", ":SymbolsOutline<cr>", opts)
+keymap("n", "<C-y>", ":SymbolsOutline<cr>", opts)
 
 -- Tree
 keymap("n", "<C-n>", ":NvimTreeToggle<CR>", opts)
+
+-- Window spilt
+keymap("n", "<Space>ws", ":<C-u>sp<CR>", opts)
+keymap("n", "<Space>wv", ":<C-u>vs<CR>", opts)
 
 -- Insert --
 -- Press jk fast to exit insert mode
