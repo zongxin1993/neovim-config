@@ -62,7 +62,7 @@ keymap("n", "<A-Left>", "<C-o>", opts)
 keymap("n", "<A-Right>", "<C-i>", opts)
 
 -- Comment
-keymap("n", "<C-\\>", "<cmd>lua require('Comment.api').toggle_current_linewise()<CR>", opts)
+-- keymap("n", "<C-\\>", "<cmd>lua require('Comment.api').toggle_current_linewise()<CR>", opts)
 
 -- Outline
 keymap("n", "<A-o>", ":SymbolsOutline<cr>", opts)
