@@ -9,7 +9,7 @@ local setup = {
     registers = true, -- shows your registers on " in NORMAL or <C-r> in INSERT mode
     spelling = {
       enabled = true, -- enabling this will show WhichKey when pressing z= to select spelling suggestions
-      suggestions = 20, -- how many suggestions should be shown in the list?
+      suggestions = 50, -- how many suggestions should be shown in the list?
     },
     -- the presets plugin, adds help for a bunch of default keybindings in Neovim
     -- No actual key bindings are created
@@ -84,7 +84,7 @@ local mappings = {
   b = { "<cmd>Telescope buffers<cr>", "Buffers" },
   h = { "<cmd>nohlsearch<CR>", "No HL" },
   q = { '<cmd>lua require("plugin.functions").smart_quit()<CR>', "Quit" },
-  ["/"] = { "<cmd>lua require("Comment.api").toggle.linewise.current()<CR>", "Comment" },
+  ["/"] = { "<cmd>lua require('Comment.api').toggle.linewise.current()<CR>", "Comment" },
   o = {
     name = "Options",
     c = { '<cmd>lua vim.g.cmp_active=false<cr>', "Completion off" },
@@ -182,6 +182,27 @@ local mappings = {
     },
     t = { '<cmd>lua require("plugin.functions").toggle_diagnostics()<cr>', "Toggle Diagnostics" },
   },
+
+  m = {
+    name = "Bookmark",
+    a = { "<cmd>silent BookmarkAnnotate<cr>", "Annotate" },
+    c = { "<cmd>silent BookmarkClear<cr>", "Clear" },
+    b = { "<cmd>silent BookmarkToggle<cr>", "Toggle" },
+    m = { '<cmd>lua require("harpoon.mark").add_file()<cr>', "Harpoon" },
+    ["."] = { '<cmd>lua require("harpoon.ui").nav_next()<cr>', "Harpoon Next" },
+    [","] = { '<cmd>lua require("harpoon.ui").nav_prev()<cr>', "Harpoon Prev" },
+    l = { "<cmd>lua require('user.bfs').open()<cr>", "Buffers" },
+    j = { "<cmd>silent BookmarkNext<cr>", "Next" },
+    s = { "<cmd>Telescope harpoon marks<cr>", "Search Files" },
+    k = { "<cmd>silent BookmarkPrev<cr>", "Prev" },
+    S = { "<cmd>silent BookmarkShowAll<cr>", "Prev" },
+    -- s = {
+    --   "<cmd>lua require('telescope').extensions.vim_bookmarks.all({ hide_filename=false, prompt_title=\"bookmarks\", shorten_path=false })<cr>",
+    --   "Show",
+    -- },
+    x = { "<cmd>BookmarkClearAll<cr>", "Clear All" },
+    [";"] = { '<cmd>lua require("harpoon.ui").toggle_quick_menu()<cr>', "Harpoon UI" },
+  }
 }
 
 local vopts = {
