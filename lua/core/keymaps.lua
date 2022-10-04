@@ -65,14 +65,10 @@ keymap("n", "<A-Right>", "<C-i>", opts)
 keymap("n", "<C-\\>", "<cmd>lua require('Comment.api').toggle_current_linewise()<CR>", opts)
 
 -- Outline
-keymap("n", "<C-y>", ":SymbolsOutline<cr>", opts)
+keymap("n", "<A-o>", ":SymbolsOutline<cr>", opts)
 
 -- Tree
 keymap("n", "<C-n>", ":NvimTreeToggle<CR>", opts)
-
--- Window spilt
-keymap("n", "<Space>ws", ":<C-u>sp<CR>", opts)
-keymap("n", "<Space>wv", ":<C-u>vs<CR>", opts)
 
 -- Insert --
 -- Press jk fast to exit insert mode
