@@ -84,7 +84,7 @@ local mappings = {
   b = { "<cmd>Telescope buffers<cr>", "Buffers" },
   h = { "<cmd>nohlsearch<CR>", "No HL" },
   q = { '<cmd>lua require("plugin.functions").smart_quit()<CR>', "Quit" },
-  ["/"] = { "<cmd>lua require('Comment.api').toggle_current_linewise()<CR>", "Comment" },
+  ["/"] = { "<cmd>lua require("Comment.api").toggle.linewise.current()<CR>", "Comment" },
   o = {
     name = "Options",
     c = { '<cmd>lua vim.g.cmp_active=false<cr>', "Completion off" },
