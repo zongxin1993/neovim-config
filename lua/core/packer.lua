@@ -90,12 +90,6 @@ return packer.startup(function(use)
       end, 100)
     end,
   })
-  use({
-    "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
-    config = function()
-      require("lsp_lines").setup()
-    end,
-  })
   -- Telescope
   use({ "nvim-telescope/telescope.nvim" })
 
