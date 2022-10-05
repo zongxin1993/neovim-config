@@ -158,7 +158,6 @@ local mappings = {
   l = {
     name = "LSP",
     a = { "<cmd>lua vim.lsp.buf.code_action()<cr>", "Code Action" },
-    -- c = { "<cmd>lua require('plugin.lsp').server_capabilities()<cr>", "Get Capabilities" },
     d = { "<cmd>TroubleToggle<cr>", "Diagnostics" },
     w = { "<cmd>Telescope lsp_workspace_diagnostics<cr>", "Workspace Diagnostics" },
     f = { "<cmd>lua vim.lsp.buf.format{async=true}<CR>", "Format" },
@@ -180,6 +179,7 @@ local mappings = {
       "Workspace Symbols",
     },
     t = { '<cmd>lua require("plugin.functions").toggle_diagnostics()<cr>', "Toggle Diagnostics" },
+    o = { ':SymbolsOutline<cr>', "Outline"},
   },
 
   m = {
