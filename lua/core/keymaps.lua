@@ -18,8 +18,8 @@ vim.g.maplocalleader = " "
 --   command_mode = "c",
 
 -- Normal --
--- close project
-keymap("n", "<C-q>", "<esc>:wq<CR>", opts)
+-- close buffers
+keymap("n", "<C-q>", ":Bdelete<cr>", opts)
 
 -- Better window navigation
 if vim.fn.has "mac" == 1 then
@@ -53,12 +53,6 @@ keymap("n", "<C-s>", ":w<cr>", opts)
 -- Find files and strings
 keymap("n", "<C-f>", ":Telescope live_grep<cr>", opts)
 keymap("n", "<C-p>", ":Telescope find_files<cr>", opts)
-
--- close buffer
-keymap("n", "<C-c>", ":Bdelete<cr>", opts)
-
--- Outline
-keymap("n", "<A-o>", ":SymbolsOutline<cr>", opts)
 
 -- Tree
 keymap("n", "<C-n>", ":NvimTreeToggle<CR>", opts)
