@@ -57,13 +57,6 @@ keymap("n", "<C-p>", ":Telescope find_files<cr>", opts)
 -- close buffer
 keymap("n", "<C-c>", ":Bdelete<cr>", opts)
 
--- Back and Forward
-keymap("n", "<A-Left>", "<C-o>", opts)
-keymap("n", "<A-Right>", "<C-i>", opts)
-
--- Comment
--- keymap("n", "<C-\\>", "<cmd>lua require('Comment.api').toggle_current_linewise()<CR>", opts)
-
 -- Outline
 keymap("n", "<A-o>", ":SymbolsOutline<cr>", opts)
 
@@ -91,9 +84,3 @@ keymap("x", "K", ":move '<-2<CR>gv-gv", opts)
 keymap("x", "<A-j>", ":move '>+1<CR>gv-gv", opts)
 keymap("x", "<A-k>", ":move '<-2<CR>gv-gv", opts)
 
--- Terminal --
--- Better terminal navigation
--- keymap("t", "<C-h>", "<C-\\><C-N><C-w>h", term_opts)
--- keymap("t", "<C-j>", "<C-\\><C-N><C-w>j", term_opts)
--- keymap("t", "<C-k>", "<C-\\><C-N><C-w>k", term_opts)
--- keymap("t", "<C-l>", "<C-\\><C-N><C-w>l", term_opts)
