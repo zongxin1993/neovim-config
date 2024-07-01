@@ -53,7 +53,6 @@ return packer.startup(function(use)
   use({ "akinsho/toggleterm.nvim", commit = "2a787c426ef00cb3488c11b14f5dcf892bbd0bda" })
   use({ "ahmedkhalf/project.nvim", commit = "628de7e433dd503e782831fe150bb750e56e55d6" })
   use({ "lewis6991/impatient.nvim", commit = "b842e16ecc1a700f62adb9802f8355b99b52a5a6" })
-  use({ "lukas-reineke/indent-blankline.nvim", commit = "db7cbcb40cc00fc5d6074d7569fb37197705e7f6" })
   use({ "goolord/alpha-nvim", commit = "0bb6fc0646bcd1cdb4639737a1cee8d6e08bcc31" })
   use({"folke/which-key.nvim"})
 
@@ -73,26 +72,13 @@ return packer.startup(function(use)
   use({ "L3MON4D3/LuaSnip", commit = "8f8d493e7836f2697df878ef9c128337cbf2bb84" }) --snippet engine
   use({ "rafamadriz/friendly-snippets" , commit = "2be79d8a9b03d4175ba6b3d14b082680de1b31b1"}) -- a bunch of snippets to use
 
-  -- Marks
-  use "christianchiarulli/harpoon"
-  use "MattesGroeger/vim-bookmarks"
-
   -- LSP
   use({ "neovim/nvim-lspconfig" , commit = "f11fdff7e8b5b415e5ef1837bdcdd37ea6764dda"}) -- enable LSP
   use { "williamboman/mason.nvim", commit = "bfc5997e52fe9e20642704da050c415ea1d4775f" }
   use { "williamboman/mason-lspconfig.nvim", commit = "0eb7cfefbd3a87308c1875c05c3f3abac22d367c" }
   use { "RRethy/vim-illuminate", commit = "a2e8476af3f3e993bb0d6477438aad3096512e42" }
-  -- use({ "williamboman/nvim-lsp-installer" }) -- simple to use language server installer
   use({ "jose-elias-alvarez/null-ls.nvim" }) -- for formatters and linters
-  use({
-    "zbirenbaum/copilot.lua",
-    event = { "VimEnter" },
-    config = function()
-      vim.defer_fn(function()
-        require "plugin.copilot"
-      end, 100)
-    end,
-  })
+
   -- Telescope
   use({ "nvim-telescope/telescope.nvim", commit = "76ea9a898d3307244dce3573392dcf2cc38f340f" })
 
@@ -104,16 +90,6 @@ return packer.startup(function(use)
   -- Git
   use({ "lewis6991/gitsigns.nvim", requires = { "nvim-lua/plenary.nvim" }, commit = "f98c85e7c3d65a51f45863a34feb4849c82f240f" })
 
-  -- Notify
-  --[[
-  use({
-    "rcarriga/nvim-notify",
-    config = function()
-      require("core.notify").setup()
-    end,
-    requires = { "nvim-telescope/telescope.nvim" },
-  })
-  --]]
   -- Git diff
   use({ "sindrets/diffview.nvim", require = "nvim-lua/plenary.nvim" })
 
@@ -132,7 +108,10 @@ return packer.startup(function(use)
     "glepnir/galaxyline.nvim",
   })
   
-  use({ "SmiteshP/nvim-gps" })
+  use {
+    "SmiteshP/nvim-navic",
+    requires = "neovim/nvim-lspconfig"
+}
 
   -- debugger
   
@@ -141,7 +120,6 @@ return packer.startup(function(use)
   use { "ravenxrz/DAPInstall.nvim", commit = "8798b4c36d33723e7bba6ed6e2c202f84bb300de" }
   use("theHamsta/nvim-dap-virtual-text")
   
-  -- use({"wesleimp/stylua.nvim"})
   use({ "yamatsum/nvim-cursorline" })
 
   use({ "norcalli/nvim-colorizer.lua" })

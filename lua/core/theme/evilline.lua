@@ -1,5 +1,5 @@
 local gl = require('galaxyline')
-local gps = require('nvim-gps')
+local gps = require('nvim-navic')
 local gls = gl.section
 local extension = require('galaxyline.provider_extensions')
 local dap = require('dap')

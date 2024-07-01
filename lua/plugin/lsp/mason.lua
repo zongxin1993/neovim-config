@@ -1,4 +1,4 @@
-local servers = {"jsonls", "sumneko_lua", "cmake", "marksman", "clangd"}
+local servers = {"sumneko_lua", "cmake", "clangd"}
 
 local settings = {
 	ui = {
